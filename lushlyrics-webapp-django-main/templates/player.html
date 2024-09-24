@@ -106,11 +106,12 @@
 
 
         {% if not user.is_authenticated %}
+
         <a href = "{% url 'login' %}">Login</a> or 
         <a href = "{% url 'signup' %}">Sign Up</a>
-
+        
         {% else %}
-
+        <p><a href="{% url 'password_change' %}">Change Password</a></p>
         <form method="post" action = "users/logout/">
         <a class="profile-container">
             <button class="profile">
@@ -123,16 +124,16 @@
                     </svg>
                 
                 </div>
-        
                 <span class='username hide-onhover'>{{ request.user }}</span>
                 <span class='logout username'>Logout</span>
-            </button>
-        {% endif %}
-
+                
+            </button> 
+            {% endif %}
         </a>
-    </div>
-
-
+        
+    </div> 
+    
+    
 
     <div class="main" data-simplebar>
         {% block main %}
